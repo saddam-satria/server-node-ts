@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import routes from './app/config/router';
+import path from 'path';
 
 (() => {
   dotenv.config();
@@ -10,6 +11,7 @@ import routes from './app/config/router';
 
   app.use(cors());
   app.use(routes);
+  app.use('/static', express.static(path.join(__dirname, '../public')));
 
   app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
