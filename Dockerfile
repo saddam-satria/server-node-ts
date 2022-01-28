@@ -2,11 +2,11 @@ FROM node:14.16-alpine
 
 WORKDIR /home/server-node-ts
 
-COPY package*.json ./home/server-node-ts
+COPY package*.json ./
 
 RUN yarn install
 
-COPY . ./home/server-node-ts
+COPY . ./
 
 RUN yarn run build
 
