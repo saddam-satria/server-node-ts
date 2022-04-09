@@ -10,6 +10,7 @@ import path from 'path';
   const PORT: undefined | string | number = process.env.PORT || 5000;
 
   app.use(cors());
+  app.use(express.json());
   app.use(routes);
   app.use('/static', express.static(path.join(__dirname, '../public')));
 
