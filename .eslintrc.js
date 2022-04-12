@@ -18,7 +18,6 @@ module.exports = {
     'node/no-unsupported-features/es-syntax': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
     '@typescript-eslint/no-unused-vars': 'warn',
-    '@typescript-eslint/require-await': 'warn',
     '@typescript-eslint/no-duplicate-imports': 'warn',
     'node/no-missing-import': ['off'],
     'no-console': 'off',
