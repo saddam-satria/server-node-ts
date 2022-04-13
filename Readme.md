@@ -74,13 +74,13 @@ yarn run prettier
     <li>Mocha chai http testing</li>
     <li>Husky pre commit</li>
     <li>Prettier</li>
+    <li>bcrypt helper</li>
+    <li>jwt helper</li>
 </ul>
 
 <h3>ongoing features</h3>
 <ul>
-    <li>bcrypt helper</li>
-    <li>jwt helper</li>
-    <li>EJS</li>
+    <li>middleware jwt</li>
 </ul>
 
 <h3> made with ❤️ by Saddam Satria </h3>
