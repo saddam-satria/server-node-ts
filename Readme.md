@@ -26,6 +26,14 @@ yarn run dev
 
 > the browser will serve [localhost:5000](http://localhost:5000)
 
+## - Testing Mode
+
+```
+yarn test
+```
+
+> mocha configure test folder as testing files input
+
 ## - Production Mode
 
 ```
