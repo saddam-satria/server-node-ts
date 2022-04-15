@@ -1,4 +1,4 @@
-version: 2.1
+version: 1.1
 
 jobs:
   build:
@@ -7,5 +7,16 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: yarn test
-  
+  test:
+    docker:
+      - image: cimg/node:16.14
+    steps:
+      - checkout
+      - run: yarn run test  
+
+workflows:
+  version: 1.1
+  build_test:
+    jobs:
+      - build
+      - test
