@@ -6,7 +6,6 @@ jobs:
       - image: cimg/node:16.14
     steps:
       - checkout
-      - run: npm install -g yarn
       - run: yarn install
   test:
     docker:
