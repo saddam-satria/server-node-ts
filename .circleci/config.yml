@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  integration:
+  build:
     docker:
       - image:circleci/node:16.14
     steps:
@@ -14,9 +14,3 @@ jobs:
     steps:
       - checkout
       - run: yarn run test
-  
-workflows:
-  integration_test:
-    jobs:
-      - integration
-      - test
