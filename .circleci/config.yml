@@ -15,7 +15,7 @@ jobs:
       - run: yarn run test  
 
 workflows:
-  build_test:
+  build_and_test:
     jobs:
       - build
       - test
