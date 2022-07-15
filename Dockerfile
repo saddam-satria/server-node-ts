@@ -1,32 +1,33 @@
+FROM node:16.14.2-slim AS base
+
+RUN apt-get update
+
+WORKDIR /server-node-ts
 
 # build the code
-FROM node:16.14.2-slim AS builder
-WORKDIR /server-node-ts
+FROM base AS builder
 
 # Install devDep & dep
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN yarn install 
+RUN yarn install --development
 
-COPY tsconfig.json ./tsconfig.json
+COPY tsconfig.json ./
 COPY src ./src
 COPY public ./public
 
 RUN yarn run build
 
-# build the code
-FROM node:16.14.2-slim AS production
+FROM base AS production
 
-WORKDIR /server-node-ts
-
-COPY --from=builder /server-node-ts/package.json /server-node-ts/package.json 
-COPY --from=builder /server-node-ts/yarn.lock /server-node-ts/yarn.lock 
+COPY package*.json /server-node-ts/
+COPY yarn*.lock /server-node-ts/
 
 RUN yarn install --production
 
-COPY --from=builder /server-node-ts/build /server-node-ts/build 
-COPY --from=builder /server-node-ts/public /server-node-ts/public 
+COPY --from=builder /server-node-ts/build /server-node-ts/build
 
 
-CMD [ "yarn", "start" ]
+CMD ["node", "build/server.js"]
+
