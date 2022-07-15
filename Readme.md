@@ -84,11 +84,7 @@ yarn run prettier
     <li>Prettier</li>
     <li>bcrypt helper</li>
     <li>jwt helper</li>
-</ul>
-
-<h3>ongoing features</h3>
-<ul>
-    <li>middleware jwt</li>
+    <li>logger middleware</li>
 </ul>
 
 <h3> made with ❤️ by Saddam Satria </h3>
