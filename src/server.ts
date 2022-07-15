@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 import apiRoutes from './app/routes/api';
 import path from 'path';
 import { BASE_URL, PORT } from './app/config/utils/constant';
+import helpers from './app/config/helpers';
+import { logging } from './app/middlewares/logging';
 
 (() => {
   dotenv.config();
@@ -12,10 +14,22 @@ import { BASE_URL, PORT } from './app/config/utils/constant';
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+  app.use(logging);
   app.use('/assets', express.static(path.join(__dirname, '../public')));
   app.use('/api', apiRoutes);
 
   app.listen(PORT, () => {
-    console.log(`server running on ${BASE_URL}`);
+    try {
+      helpers.logger.server.setLog(
+        'info',
+        `server started on ${BASE_URL}`,
+        'success'
+      );
+    } catch (error) {
+      helpers.logger.server.setLog('info', `${error.message}`, 'error');
+    }
   });
+
+  helpers.logger.server.getLog();
+  helpers.logger.database.getLog();
 })();

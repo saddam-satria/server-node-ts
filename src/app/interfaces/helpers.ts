@@ -8,10 +8,16 @@ import {
   SignOptions,
   VerifyOptions,
 } from 'jsonwebtoken';
+import { DatabaseLog, ServerLog } from '../helpers/log';
 
+interface ILogger {
+  server: ServerLog;
+  database: DatabaseLog;
+}
 interface IHelpers {
   hash: Hash;
   jwt: JwtHelper;
+  logger: ILogger;
 }
 
 interface IHash {
