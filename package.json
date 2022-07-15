@@ -14,7 +14,7 @@
     "start": "node build/server.js",
     "dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
-    "test": "mocha --timeout 10000 -r ts-node/register 'tests/**/*.ts'",
+    "test": "mocha --timeout 10000 -r ts-node/register 'test/**/*.ts'",
     "lint": "eslint --fix src",
     "prettier": "prettier --write src",
     "prepare": "husky install"
