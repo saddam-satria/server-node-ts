@@ -1,0 +1,13 @@
+{
+  "message": "welcome to server node TS boilerplate",
+  "status": "success",
+  "owner": "Saddam Satria",
+  "github": "https://github.com/saddam-satria",
+  "linkedIn": "https://www.linkedin.com/in/saddam-satria-ardhi-837570170/",
+  "instagram": "https://instagram.com/saddamsatria_12",
+  "BASE_URL": "http://localhost:5000",
+  "PORT": 5000,
+  "BASE_PATH": "D:\\Computer Science\\saddam-lab\\boilerplates\\server-node-ts",
+  "ASSET_URL": "http://localhost:5000/assets",
+  "BASE_ASSET": "D:\\Computer Science\\saddam-lab\\boilerplates\\server-node-ts\\public"
+}
