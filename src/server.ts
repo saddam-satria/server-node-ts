@@ -2,8 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import apiRoutes from './app/routes/api';
-import path from 'path';
-import { BASE_URL, PORT } from './app/config/utils/constant';
+import { BASE_ASSET, BASE_URL, PORT } from './app/config/utils/constant';
 import helpers from './app/config/helpers';
 import { logging } from './app/middlewares/logging';
 
@@ -15,7 +14,7 @@ import { logging } from './app/middlewares/logging';
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(logging);
-  app.use('/assets', express.static(path.join(__dirname, '../public')));
+  app.use('/assets', express.static(BASE_ASSET));
   app.use('/api', apiRoutes);
 
   app.listen(PORT, () => {
