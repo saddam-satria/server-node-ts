@@ -1,0 +1,40 @@
+name: 'Server Node TS'
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x, 14.x]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set Up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: install dependencies
+        run: yarn install
+
+      - name: testing
+        run: yarn test
+
+      - name: build apps
+        run: yarn build
+
+      - name: deploy apps
+        run: |
+          git config --global user.name $user_name
+          git config --global user.email $user_email 
+          git remote set-url origin https://${github_token}@github.com/${repository}
+        env:
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          github_token: ${{secrets.DEPLOY_ACCESS_TOKEN}}
+          repository: ${{github.repository}}
